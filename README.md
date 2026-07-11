@@ -165,7 +165,35 @@ Response
   "records": []
 }
 ```
+#  Screenshots
 
+## Home Page
+
+![Home](./screenshots/home-page.png)
+
+---
+
+## CSV Preview
+
+![Preview](./screenshots/csv-preview.png)
+
+---
+
+## Importing
+
+![Loading](./screenshots/loading-state.png)
+
+---
+
+## AI Extraction Result
+
+![Result](./screenshots/result.png)
+
+---
+
+## Mobile Responsive View
+
+![Mobile](./screenshots/mobile-view.png)
 ---
 
 # AI Extraction
