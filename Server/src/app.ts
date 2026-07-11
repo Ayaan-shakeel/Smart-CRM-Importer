@@ -2,7 +2,15 @@ import express from "express";
 import cors from "cors";
 import uploadRoutes from "./routes/uploadRoutes"
 export const app=express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:7000",
+      "https://smart-crm-importer-six.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.get("/",(req,res)=>{
     res.json({
