@@ -21,8 +21,7 @@ ${JSON.stringify(batch, null, 2)}
 
 Return ONLY a valid JSON array.
 `;
-console.log("Sending batch to Gemini:");
-console.log(batch);
+
     try {
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
@@ -30,8 +29,6 @@ console.log(batch);
       });
 
       const text = response.text;
-console.log("Gemini Raw Response:");
-console.log(response.text);
       const cleaned = text
         ?.replace(/```json/g, "")
         .replace(/```/g, "")
@@ -39,16 +36,12 @@ console.log(response.text);
 
      try {
   const parsed = JSON.parse(cleaned || "[]");
-  console.log("Parsed JSON:", parsed);
 
   allRecords.push(...parsed);
 } catch (err) {
-  console.error("JSON Parse Error:", err);
-  console.log("Invalid JSON:");
-  console.log(cleaned);
+  
 }
-      console.log("Cleaned Response:");
-console.log(cleaned);
+
     }catch (error) {
   console.error("Gemini Error:", error);
 }

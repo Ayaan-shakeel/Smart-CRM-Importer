@@ -6,8 +6,6 @@ export const uploadCSV = async (
   req: Request,
   res: Response
 ) => {
-    console.log(req.body)
-    console.log(req.file)
   try {
     if (!req.file) {
       return res.status(400).json({
@@ -27,10 +25,20 @@ return res.status(200).json({
   totalSkipped: rows.length - crmRecords.length,
   records: crmRecords,
 });
-  } catch (error) {
-    return res.status(500).json({
+  } catch (error: any) {
+  console.error(error);
+
+  if (error?.status === 429) {
+    return res.status(429).json({
       success: false,
-      message: "Upload failed",
+      message:
+        "Gemini API quota exceeded. Please try again later.",
     });
   }
+
+  return res.status(500).json({
+    success: false,
+    message: "Something went wrong while processing the CSV.",
+  });
+}
 };
