@@ -33,7 +33,7 @@ https://smart-crm-importer-ujcd.onrender.com
 
 ---
 
-# 🛠 Tech Stack
+# Tech Stack
 
 ## Frontend
 
